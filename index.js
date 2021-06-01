@@ -25,12 +25,12 @@ const toParams = (rawParams) => {
 try {
     const loadmill = require('loadmill')({token: core.getInput('token')});
 
-    const planId = core.getInput('id');
+    const id = core.getInput('id');
     const additionalDescription = core.getInput('additionalDescription');
     const labels = core.getInput('labels');
     const parameters = core.getInput('parameters');
 
-    console.log(`Running test plan with ID ${planId}!`);
+    console.log(`Running test plan with ID ${id}!`);
 
     const running = await loadmill.runTestPlan({
         id,
