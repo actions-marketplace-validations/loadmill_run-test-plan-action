@@ -21,7 +21,7 @@ const toParams = (rawParams) => {
 
     return parameters;
 }
-
+(async () => {
 try {
     const loadmill = require('./lib/index')({token: core.getInput('token')});
 
@@ -52,3 +52,7 @@ try {
     console.log(`Test Plan Error ${error}`);
     core.setFailed(error.message);
 }
+})()
+.then(() => {
+    console.log(`Finished runnning Loadmill Test Plan`);
+});
