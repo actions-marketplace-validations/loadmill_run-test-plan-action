@@ -23,7 +23,7 @@ const toParams = (rawParams) => {
 }
 (async () => {
 try {
-    const loadmill = require('./lib/index')({token: core.getInput('token')});
+    const loadmill = require('loadmill')({token: core.getInput('token')});
 
     const planId = core.getInput('id');
     const additionalDescription = core.getInput('additionalDescription');
