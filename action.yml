@@ -1,0 +1,24 @@
+name: 'Run Loadmill Test Plan'
+description: 'Run a Loadmill test plan'
+inputs:
+  id:
+    description: 'Test Plan Id'
+    required: true
+  token:
+    description: 'User token to run the test plan on behalf of'
+    required: true
+  additionalDescription:
+    description: 'Added at the end of the test plan run description (e.g. build number)'
+    required: false
+  lables:
+    description: 'Execute flows that are assigned to a specific label (e.g. "label1,label2")'
+    required: false
+  parameters:
+    description: 'Override pre-defined parameter values via command line arguments by passing name=value pairs seperated by comma  (e.g. "name=value,name2=value2")'
+    required: false
+outputs:
+  result:
+    description: 'The result of the test plan run'
+runs:
+  using: 'node12'
+  main: 'index.js'
