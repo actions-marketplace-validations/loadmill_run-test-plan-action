@@ -33,21 +33,26 @@ The result of the test plan run.
 ## Example usage
 
 ### A simple example
+```
 uses: actions/run-test-plan-action@v1.0
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
   token: '<my-generated-token>'
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
+```
 
 ### An example with labels
+```
 uses: actions/run-test-plan-action@v1.0
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
   token: '<my-generated-token>'
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
   labels: 'sanity,regression'
+```
 
 ### An example with overrided parameters
+```
 uses: actions/run-test-plan-action@v1.0
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
@@ -55,4 +60,4 @@ with:
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
   labels: 'sanity,regression'
   parameters: 'host=www.example.com,port:443'
-
+```

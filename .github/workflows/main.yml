@@ -1,0 +1,21 @@
+on: [push, workflow_dispatch]
+
+jobs:
+  test_the_action:
+    runs-on: ubuntu-latest
+    name: A job to run test plan
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: test_our_action_step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          id: 'd64ac77e-f614-464d-85a9-da35d6fc811b'
+          token: ${{ secrets.LOADMILL_API_TOKEN }}
+          additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
+      # Use the output from the `test_our_action_step` step
+      - name: Get the output result
+        run: echo "The result was ${{ steps.test_our_action_step.outputs.result }}"
