@@ -10,7 +10,7 @@ inputs:
   additionalDescription:
     description: 'Added at the end of the test plan run description (e.g. build number)'
     required: false
-  lables:
+  labels:
     description: 'Execute flows that are assigned to a specific label (e.g. "label1,label2")'
     required: false
   parameters:

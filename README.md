@@ -16,7 +16,7 @@ This action runs a loadmill test plan, wait for it to complete and returns the r
 
 Added at the end of the test plan run description (e.g. build number).
 
-### `lables`
+### `labels`
 
 Execute flows that are assigned to a specific label (e.g. "label1,label2")
 
