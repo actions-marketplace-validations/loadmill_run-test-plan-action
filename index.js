@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const convertStrToArr, toParams = require('./utils');
+const { convertStrToArr, toParams } = require('./utils');
 
 const failFailed = (err = 'Failed to run test plan. Please contact support') => {
     console.log(err);
