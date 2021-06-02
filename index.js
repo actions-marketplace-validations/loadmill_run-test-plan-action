@@ -1,26 +1,11 @@
 const core = require('@actions/core');
+const convertStrToArr, toParams = require('./utils');
 
-const convertStrToArr = (strWithCommas) => {
-    return typeof strWithCommas !== "string" ? null : strWithCommas.split(",");
+const failFailed = (err = 'Failed to run test plan. Please contact support') => {
+    console.log(err);
+    core.setFailed(err);
 }
 
-const toParams = (rawParams) => {
-    const parameters = {};
-
-    const splitted = rawParams && rawParams.split(',') || [];
-    splitted.forEach(pair => {
-        const pivot = pair.indexOf('=');
-
-        if (pivot <= 0) {
-            throw new Error(`Invalid parameter assignment: ${pair}`);
-        }
-
-        const name = pair.slice(0, pivot);
-        parameters[name] = pair.slice(pivot + 1, pair.length);
-    });
-
-    return parameters;
-}
 (async () => {
 try {
     const loadmill = require('loadmill')({token: core.getInput('token')});
@@ -42,15 +27,23 @@ try {
         toParams(parameters)
     );
 
+    if (!running) {
+        failFailed();
+        return;
+    }
+
     console.log(`Waiting for test plan to finish ${JSON.stringify(running)}`);
 
-    const awaited = await loadmill.wait(running);
-    console.log(`Test Plan result ${JSON.stringify(awaited)}`);
+    const result = await loadmill.wait(running);
+    console.log(`Test Plan result ${JSON.stringify(result, null, 2)}`);
+    core.setOutput("result", result);
 
-    core.setOutput("result", awaited);
+    if (result && !result.passed) {
+        failFailed(`Test Plan has failed. More details can be found at ${result.url}`);
+    }
+
 } catch (error) {
-    console.log(`Test Plan Error ${error}`);
-    core.setFailed(error.message);
+    failFailed(error.message);
 }
 })()
 .then(() => {
