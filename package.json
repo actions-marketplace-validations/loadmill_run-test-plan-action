@@ -12,6 +12,6 @@
   "dependencies": {
     "@actions/core": "^1.3.0",
     "@actions/github": "^5.0.0",
-    "loadmill": "^3.0.0"
+    "loadmill": "^3.0.1"
   }
 }
