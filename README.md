@@ -12,6 +12,8 @@ This action runs a loadmill test plan, wait for it to complete and returns the r
 
 **Required** User token to run the test plan on behalf of. In order to run the test plan you will need to generate an [API Token](https://docs.loadmill.com/integrations/api-tokens).
 
+It's recommended to use [GitHub's secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) when using sensitive data like an API token
+
 ### `additionalDescription`
 
 Added at the end of the test plan run description (e.g. build number).
@@ -38,6 +40,15 @@ uses: actions/run-test-plan-action@v1.0
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
   token: '<my-generated-token>'
+  additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
+```
+
+### Using a secret called LOADMILL_API_TOKEN
+```
+uses: actions/run-test-plan-action@v1.0
+with:
+  id: '123e4567-e89b-12d3-a456-426614174000'
+  token: ${{ secrets.LOADMILL_API_TOKEN }}
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
 ```
 
