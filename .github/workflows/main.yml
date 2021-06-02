@@ -16,6 +16,8 @@ jobs:
           id: 'd64ac77e-f614-464d-85a9-da35d6fc811b'
           token: ${{ secrets.LOADMILL_API_TOKEN }}
           additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
+          labels: 'sanity'
+          parameters: 'testParam=testValue,anotherTestParam=anotherTestValue'
       # Use the output from the `test_our_action_step` step
       - name: Get the output result
         run: echo "The result was ${{ steps.loadmillTP.outputs.result }}"
