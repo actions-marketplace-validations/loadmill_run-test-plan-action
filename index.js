@@ -16,6 +16,7 @@ try {
     const parameters = core.getInput('parameters');
     const branch = core.getInput('branch');
     const labelsExpression = core.getInput('labelsExpression');
+    const parallel = core.getInput('parallel');
 
     console.log(`Running test plan with ID ${id}!`);
 
@@ -26,6 +27,7 @@ try {
             labels: convertStrToArr(labels),
             labelsExpression,
             branch,
+            parallel
         }
     },
         toParams(parameters)

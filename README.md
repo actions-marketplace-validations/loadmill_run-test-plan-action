@@ -26,6 +26,10 @@ Execute flows that are assigned to a specific label (e.g. "label1,label2")
 
 Execute flows that match the labels expression. An expression may contain the characters ( ) & | ! (e.g. '(label1 | label2) & !label3')
 
+### `parallel`
+
+Set the concurrency amount of running test suites in a test plan. Max concurrency is 10.
+
 ### `parameters`
 
 Override pre-defined parameter values via command line arguments by passing name=value pairs seperated by comma  (e.g. "name=value,name2=value2")
