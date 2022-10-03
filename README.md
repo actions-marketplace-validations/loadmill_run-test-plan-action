@@ -30,6 +30,10 @@ Execute flows that match the labels expression. An expression may contain the ch
 
 Set the concurrency amount of running test suites in a test plan. Max concurrency is 10.
 
+### `pool`
+
+Execute tests from a dedicated agent's pool (when using private agent)
+
 ### `parameters`
 
 Override pre-defined parameter values via command line arguments by passing name=value pairs seperated by comma  (e.g. "name=value,name2=value2")
