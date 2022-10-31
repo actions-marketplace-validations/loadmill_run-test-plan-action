@@ -52,7 +52,7 @@ The result of the test plan run.
 
 ### A simple example
 ```
-uses: actions/run-test-plan-action@v1.0
+uses: loadmill/run-test-plan-action@v1
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
   token: '<my-generated-token>'
@@ -61,7 +61,7 @@ with:
 
 ### Using a secret called LOADMILL_API_TOKEN
 ```
-uses: actions/run-test-plan-action@v1.0
+uses: loadmill/run-test-plan-action@v1
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
   token: ${{ secrets.LOADMILL_API_TOKEN }}
@@ -70,7 +70,7 @@ with:
 
 ### An example with labels
 ```
-uses: actions/run-test-plan-action@v1.0
+uses: loadmill/run-test-plan-action@v1
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
   token: '<my-generated-token>'
@@ -80,7 +80,7 @@ with:
 
 ### An example with overrided parameters
 ```
-uses: actions/run-test-plan-action@v1.0
+uses: loadmill/run-test-plan-action@v1
 with:
   id: '123e4567-e89b-12d3-a456-426614174000'
   token: '<my-generated-token>'
