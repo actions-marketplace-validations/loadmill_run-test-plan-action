@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actions/core": "^1.3.0",
-    "@actions/github": "^5.0.0",
-    "loadmill": "^3.2.2"
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "loadmill": "^3.2.3"
   }
 }

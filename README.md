@@ -40,7 +40,7 @@ Override pre-defined parameter values via command line arguments by passing name
 
 ### `branch`
 
-Run the test plan's suites from a GitHub branch
+Run the test plan's suites from a Git branch
 
 ## Outputs
 
