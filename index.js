@@ -14,6 +14,10 @@ try {
     const additionalDescription = core.getInput('additionalDescription');
     const labels = core.getInput('labels');
     const parameters = core.getInput('parameters');
+    const branch = core.getInput('branch');
+    const labelsExpression = core.getInput('labelsExpression');
+    const parallel = core.getInput('parallel');
+    const pool = core.getInput('pool');
 
     console.log(`Running test plan with ID ${id}!`);
 
@@ -21,7 +25,11 @@ try {
         id,
         options: {
             additionalDescription,
-            labels: convertStrToArr(labels)
+            labels: convertStrToArr(labels),
+            labelsExpression,
+            branch,
+            parallel,
+            pool
         }
     },
         toParams(parameters)

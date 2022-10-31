@@ -22,9 +22,25 @@ Added at the end of the test plan run description (e.g. build number).
 
 Execute flows that are assigned to a specific label (e.g. "label1,label2")
 
+### `labelsExpression`
+
+Execute flows that match the labels expression. An expression may contain the characters ( ) & | ! (e.g. '(label1 | label2) & !label3')
+
+### `parallel`
+
+Set the concurrency amount of running test suites in a test plan. Max concurrency is 10.
+
+### `pool`
+
+Execute tests from a dedicated agent's pool (when using private agent)
+
 ### `parameters`
 
 Override pre-defined parameter values via command line arguments by passing name=value pairs seperated by comma  (e.g. "name=value,name2=value2")
+
+### `branch`
+
+Run the test plan's suites from a GitHub branch
 
 ## Outputs
 
