@@ -54,7 +54,7 @@ The result of the test plan run.
 ```
 uses: loadmill/run-test-plan-action@v1
 with:
-  id: '123e4567-e89b-12d3-a456-426614174000'
+  id: '<test-plan-id>'
   token: '<my-generated-token>'
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
 ```
@@ -63,7 +63,7 @@ with:
 ```
 uses: loadmill/run-test-plan-action@v1
 with:
-  id: '123e4567-e89b-12d3-a456-426614174000'
+  id: '<test-plan-id>'
   token: ${{ secrets.LOADMILL_API_TOKEN }}
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
 ```
@@ -72,7 +72,7 @@ with:
 ```
 uses: loadmill/run-test-plan-action@v1
 with:
-  id: '123e4567-e89b-12d3-a456-426614174000'
+  id: '<test-plan-id>'
   token: '<my-generated-token>'
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
   labels: 'sanity,regression'
@@ -82,7 +82,7 @@ with:
 ```
 uses: loadmill/run-test-plan-action@v1
 with:
-  id: '123e4567-e89b-12d3-a456-426614174000'
+  id: '<test-plan-id>'
   token: '<my-generated-token>'
   additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
   labels: 'sanity,regression'
