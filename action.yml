@@ -32,7 +32,7 @@ outputs:
   result:
     description: 'The result of the test plan run'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'
 branding:
   icon: 'check'
