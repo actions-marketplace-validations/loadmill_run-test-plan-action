@@ -1,6 +1,6 @@
 # Run Loadmill Test Plan action
 
-This action runs a loadmill test plan, wait for it to complete and returns the result.
+This action runs a loadmill test plan, waits for it to complete and returns the result.
 
 ## Inputs
 
