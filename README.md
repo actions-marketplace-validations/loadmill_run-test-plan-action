@@ -42,6 +42,14 @@ Override pre-defined parameter values via command line arguments by passing name
 
 Run the test plan's suites from a Git branch
 
+### `healthcheckURL`
+
+The test plan will start running only after a 200 status code is recieved from the given healthcheckURL argument. This health check will be performed every 5 seconds, up to 60 seconds or until the optional healthcheckTimeout arg (see below) is reached.
+
+### `healthcheckTimeout`
+
+If healthcheckURL (see above) is given, the health check is performed until  healthcheckTimeout is reached.
+
 ## Outputs
 
 ### `result`

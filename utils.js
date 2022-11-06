@@ -20,7 +20,11 @@ const toParams = (rawParams) => {
     return parameters;
 }
 
+const sleep = (ms) =>
+    new Promise(resolve => setTimeout(resolve, ms));
+
 module.exports = {
+    sleep,
     convertStrToArr,
     toParams
 }
