@@ -1,8 +1,8 @@
 const core = require('@actions/core');
 const { convertStrToArr, toParams } = require('./utils');
+const { checkHealth } = require('./health-check');
 
 const failFailed = (err = 'Failed to run test plan. Please contact support') => {
-    console.log(err);
     core.setFailed(err);
 }
 
@@ -18,6 +18,12 @@ try {
     const labelsExpression = core.getInput('labelsExpression');
     const parallel = core.getInput('parallel');
     const pool = core.getInput('pool');
+    const healthcheckURL = core.getInput('healthcheckURL');
+    const healthcheckTimeout = core.getInput('healthcheckTimeout');
+
+    if (healthcheckURL) {
+        await handleHealthCheck(healthcheckURL, healthcheckTimeout);
+    }
 
     console.log(`Running test plan with ID ${id}!`);
 
@@ -57,3 +63,16 @@ try {
 .then(() => {
     console.log(`Finished runnning Loadmill Test Plan`);
 });
+
+async function handleHealthCheck(healthcheckURL, healthcheckTimeout) {
+    const failedHealthCheckPrompt = 'Failed the health check 🫀❌: ';
+    try {
+        const isHealthy = await checkHealth(healthcheckURL, healthcheckTimeout);
+        if (!isHealthy) {
+            failFailed(failedHealthCheckPrompt + 'Timed out ⌛️.');
+        }
+    } catch (error) {
+        failFailed(failedHealthCheckPrompt + error);
+    }
+}
+

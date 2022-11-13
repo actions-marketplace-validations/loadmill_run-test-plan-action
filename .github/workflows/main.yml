@@ -18,6 +18,8 @@ jobs:
           additionalDescription: "Commit ${{ github.ref }} by ${{ github.actor }}"
           labels: 'sanity'
           parameters: 'testParam=testValue,anotherTestParam=anotherTestValue'
+          healthcheckURL: 'https://loadmill-test-blog.herokuapp.com/'
+          healthcheckTimeout: '10'
       # Use the output from the `test_our_action_step` step
       - name: Get the output result
         run: echo "The result was ${{ steps.loadmillTP.outputs.result }}"
