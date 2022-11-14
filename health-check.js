@@ -17,12 +17,12 @@ const checkHealth = async (healthcheckURL, healthcheckTimeout) => {
     let elapsedTime = 0;
     let attemptCount = 0;
 
-    console.log('Checking env health 🫀.');
+    console.log('🫀 Checking env health.');
     while (elapsedTime < timeLimit) {
         try {
 	          const { message: { statusCode } } = await http.get(healthcheckURL);
             if (statusCode === 200) {
-                console.log('Env is up. Health check completed successfully 🫀✅.');
+                console.log('🫀✅ Env is up. Health check completed successfully.');
                 return true;
             }
         } catch (e) { }

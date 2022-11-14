@@ -25,7 +25,7 @@ try {
         await handleHealthCheck(healthcheckURL, healthcheckTimeout);
     }
 
-    console.log(`Running test plan with ID ${id}!`);
+    console.log(`🏃 Running test plan with ID ${id}!`);
 
     const running = await loadmill.runTestPlan({
         id,
@@ -46,14 +46,14 @@ try {
         return;
     }
 
-    console.log(`Waiting for test plan to finish ${JSON.stringify(running)}`);
+    console.log(`⏱ Waiting for test plan to finish ${JSON.stringify(running)}`);
 
     const result = await loadmill.wait(running);
-    console.log(`Test Plan result ${JSON.stringify(result, null, 2)}`);
+    console.log(`🏁 Test Plan result ${JSON.stringify(result, null, 2)}`);
     core.setOutput("result", result);
 
     if (result && !result.passed) {
-        failFailed(`Test Plan has failed. More details can be found at ${result.url}`);
+        failFailed(`🚨 Test Plan has failed. More details can be found at ${result.url}`);
     }
 
 } catch (error) {
