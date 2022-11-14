@@ -32,7 +32,7 @@ inputs:
     description: "The test plan will start running only after a 200 status code is recieved from the given healthcheckURL argument. This health check will be performed every 5 seconds, up to 60 seconds or until the optional healthcheckTimeout arg (see below) is reached."
     required: false
   healthcheckTimeout:
-    description: "If healthcheckURL (see above) is given, the health check is performed until healthcheckTimeout seconds is reached."
+    description: "If healthcheckURL (see above) is given, the health check is performed until healthcheckTimeout mili-seconds is reached."
     required: false
 outputs:
   result:

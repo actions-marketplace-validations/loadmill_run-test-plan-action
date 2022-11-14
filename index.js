@@ -65,7 +65,7 @@ try {
 });
 
 async function handleHealthCheck(healthcheckURL, healthcheckTimeout) {
-    const failedHealthCheckPrompt = 'Failed the health check 🫀❌: ';
+    const failedHealthCheckPrompt = '🫀❌ Failed the health check: ';
     try {
         const isHealthy = await checkHealth(healthcheckURL, healthcheckTimeout);
         if (!isHealthy) {

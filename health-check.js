@@ -4,7 +4,7 @@ const { sleep } = require('./utils');
 const SECOND_IN_MS = 1000;
 const MINUTE_IN_MS = 60 * SECOND_IN_MS;
 
-const MIN_HEALTH_CHECK_TIMEOUT = SECOND_IN_MS;
+const MIN_HEALTH_CHECK_TIMEOUT = 10 * SECOND_IN_MS;
 const DEFAULT_HEALTH_CHECK_TIMEOUT = MINUTE_IN_MS;
 const MAX_HEALTH_CHECK_TIMEOUT = 5 * MINUTE_IN_MS;
 const WAIT_HEALTH_CHECK_INTERVAL = 5 * SECOND_IN_MS;
@@ -15,7 +15,6 @@ const checkHealth = async (healthcheckURL, healthcheckTimeout) => {
     timeLimit = parseToValidTimeout(healthcheckTimeout);
     const startTime = Date.now();
     let elapsedTime = 0;
-    let attemptCount = 0;
 
     console.log('🫀 Checking env health.');
     while (elapsedTime < timeLimit) {
