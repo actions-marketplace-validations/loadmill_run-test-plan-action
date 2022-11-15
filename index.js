@@ -22,10 +22,13 @@ try {
     const healthcheckTimeout = core.getInput('healthcheckTimeout');
 
     if (healthcheckURL) {
-        await handleHealthCheck(healthcheckURL, healthcheckTimeout);
+        const healthy = await handleHealthCheck(healthcheckURL, healthcheckTimeout);
+        if (!healthy) {
+            return;
+        }
     }
 
-    console.log(`🏃 Running test plan with ID ${id}!`);
+    console.log(`🏃 Running test plan with ID ${id}`);
 
     const running = await loadmill.runTestPlan({
         id,
@@ -70,9 +73,12 @@ async function handleHealthCheck(healthcheckURL, healthcheckTimeout) {
         const isHealthy = await checkHealth(healthcheckURL, healthcheckTimeout);
         if (!isHealthy) {
             failFailed(failedHealthCheckPrompt + 'Timed out ⌛️.');
+            return false;
         }
     } catch (error) {
         failFailed(failedHealthCheckPrompt + error);
+        return false;
     }
+    return true;
 }
 
